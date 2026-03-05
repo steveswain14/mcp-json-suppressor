@@ -1,0 +1,62 @@
+\# JSON Suppressor (MCP)
+
+
+
+A standalone MCP server that validates and cleans structured data returned by AI agents. It removes invented fields, coerces incorrect types, and ensures the output matches the expected schema before it enters your pipeline.
+
+
+
+This repository contains the full implementation and runs independently. It does not depend on the full suite.
+
+
+
+\## Usage
+
+
+
+Add this server to your Claude Desktop or MCP client configuration:
+
+
+
+{
+
+&nbsp; "mcpServers": {
+
+&nbsp;   "json\_suppressor": {
+
+&nbsp;     "command": "python3",
+
+&nbsp;     "args": \["/path/to/mcp-json-suppressor/server.py"]
+
+&nbsp;   }
+
+&nbsp; }
+
+}
+
+
+
+\## What it does
+
+
+
+\- Validates JSON against a schema  
+
+\- Removes hallucinated or extra fields  
+
+\- Coerces simple type errors where possible  
+
+\- Returns cleaned JSON plus a list of violations  
+
+
+
+\## Relationship to the full suite
+
+
+
+This suppressor is also included in the consolidated mcp-hallucination-suite, which bundles all four suppressors and provides a meta-orchestrator:
+
+
+
+https://github.com/steveswain14/mcp-hallucination-suite
+
